@@ -1,0 +1,130 @@
+<title>Running Of The Trains</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+
+  <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <style>
+
+        .panel .panel-heading {
+          color: #fff;
+          background-color: #666;
+          border-color: #ddd;
+        }
+
+        label {
+          font-size: 1.4rem;
+          color: #000;
+          padding-top:10px;
+        }
+        
+        .jumbotron {
+          background-image:url(assets/images/train.jpg); 
+          text-align:center;
+          background-color:#666;
+          color:#fff;
+          border-color: #ddd;
+        }
+
+        h3 {
+          color:#ececec;
+        }
+
+        h5{
+          color:#ececec;
+        }
+
+        #current-status {
+          color:#77abff;
+        }
+
+    </style>
+</head> 
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Which Train Are You Riding?</h1>
+      <h3>Lets Find Your Train</h3>
+      <h5>Today's Date Is <span id="current-status"></span></h5>
+    </div>
+  </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <!-- <div class="container"> -->
+      <div class="panel-group">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Add Train</div>
+          <form>
+            <!--  -->
+            <div class="container-fluid">
+              <div class="form-group">
+                <label for="train-name">Train name</label>
+                <input type="text" class="form-control" id="train-name" placeholder="Train Name">
+              </div>
+              <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" class="form-control" id="destination" placeholder="Where Shall It Go">
+              </div>
+              <div class="form-group">
+                <label for="train-time">First Train Time (HH:mm, AM/PM)</label>
+                <input type="time" class="form-control" id="train-time" placeholder="12:45">
+              </div>
+              <div class="form-group">
+                <label for="frequency">
+                Frequency (mins)</label>
+                <input type="text" class="form-control" id="frequency" placeholder="20 Minutes">
+              </div>
+              <button class="btn btn-success" id="add-train" type="submit">Submit</button>
+              <br><br>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <div class="col-md-8">
+      <div class="container-fluid">
+        <div class="panel-group"> 
+          <div class="panel panel-primary">
+            <div class="panel-heading">Current Train Schedule (20 Latest Trains)
+            </div> 
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th><strong>Train name</strong></th>
+                        <th><strong>Destination</strong></th>
+                        <th><strong>Frequency (min)</strong></th>
+                        <th><strong>Next arrival</strong></th>
+                        <th><strong>Minutes away</strong></th>
+                        <!-- <th><strong>Update</strong></th> -->
+                      </tr>
+                    </thead>
+                  <tbody id="new-train"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+         </div> 
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <script src="assets/javascript/app.js"></script>
+</body>
+</html>
